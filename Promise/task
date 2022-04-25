@@ -1,0 +1,44 @@
+// Задача #1
+// Выведите resolve
+
+Promise.resolve('text')
+    .then(data => {
+        console.log(data)
+    }).finally(() => {
+        console.log('close form')
+    })
+
+// or
+const resolve = new Promise((resolve, reject) => {
+    console.log('correct')
+    resolve('data text')
+}).then((data) => {
+    console.log(data)
+}).then(() => {
+    console.log('correct')
+}).finally(() => {
+    console.log('close form')
+})
+
+// Задача #2
+// Выведите reject
+
+Promise.reject('text')
+    .catch(data => {
+        console.log(data)
+    }).finally(() => {
+        console.log('close form')
+    })
+
+// or
+
+const reject = new Promise((resolve, reject) => {
+    console.log('uncorrect')
+    reject('data text')
+}).then(() => {
+    console.log('some text')
+}).catch((data) => {
+    console.log(data)
+}).finally(() => {
+    console.log('close form')
+})
