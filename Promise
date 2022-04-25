@@ -1,1 +1,74 @@
-Home work: What is promise ?
+// Асинхронные колбэки — это функции, которые определяются как аргументы при вызове функции, 
+// которая начнёт выполнение кода на заднем фоне. 
+// Когда код на заднем фоне завершает свою работу, он вызывает колбэк-функцию, оповещающую, что работа сделана, 
+// либо оповещающую о трудностях в завершении работы.
+
+// Promise – это специальный объект, который содержит своё состояние. 
+// Вначале pending («ожидание»), затем – одно из: fulfilled («выполнено успешно») или rejected («выполнено с ошибкой»).
+
+console.log('Waiting...');
+
+const anyy = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        console.log('data preparation..')
+
+        const product = {
+            name: 'TV',
+            price: 2000
+        }
+
+        resolve(product);
+        reject();
+
+    }, 2000);
+});
+
+anyy.then((product) => {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {            // этот Таймаут запустится если 1 часть отработает без ошибок(resolve)
+            product.status = 'order';
+
+            resolve(product);
+            reject();
+        }, 2000);
+        throw new Error();
+    });
+}).then(data => {
+    console.log(data);
+}).catch(() => {
+    console.error('Error')
+}).finally(() => {
+    console.log('finally')
+})
+// .finally очистка формы
+
+
+// Promise после reject/resolve – неизменны
+// Заметим, что после вызова resolve/reject промис уже не может «передумать».
+// Когда промис переходит в состояние «выполнен» – с результатом (resolve) или ошибкой (reject) – это навсегда.
+
+
+
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve()
+            console.log(`Прошло ${time} миллисекунд`)
+        }, time)
+    })
+}
+// test(2000).then(()=>{
+//     console.log('Resolve отработал.')
+// })
+// test(3000).then(()=>{
+//     console.log('Resolve отработал.')
+// })
+
+Promise.all([test(2000), test(3000)]).then(()=>{      // ждет выполнение всех промисов
+    console.log('Все промисы отработали одновременно')
+})
+Promise.race([test(2000), test(3000)]).then(()=>{
+    console.log('Самый быстрый промис отработал')  // промисы отрабатывают как только получают ответ
+})
+
+
