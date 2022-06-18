@@ -1,0 +1,24 @@
+body{
+    margin: 15px;
+    background-color: aqua;
+    border: 5px solid black;
+    border-radius: 25px;
+}
+input{
+    margin: 15px;
+    padding: 10px;
+    
+}
+input:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+h1{
+    margin: 25px;
+}
+p{
+    margin: 25px;
+}
+h3{
+    margin: 25px;
+}
