@@ -1,0 +1,36 @@
+body{
+    background: rgb(31, 68, 68);
+    color: greenyellow;
+}
+h1{
+    margin: 15px;
+}
+h3{
+    margin: 15px;
+}
+p{
+    margin: 15px;
+}
+input{
+    margin: 15px;
+}
+input:hover{
+    opacity: 0.9;
+    cursor: pointer;
+    
+}
+ul li{
+    margin-left: 30px;
+}
+#btn{
+    margin-left: 50px;
+    color: black;
+    background-color: white;
+    border: none;
+    padding: 10px 15px;
+}
+#btn:hover{
+    color: blue;
+    opacity: 0.9;
+    cursor: pointer;
+}
