@@ -1,0 +1,14 @@
+body{
+    background: green;
+    border: 2px solid black;
+}
+input{
+    margin: 15px;
+    padding: 15px;
+    border: 0;
+    display: inline;
+}
+input:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
