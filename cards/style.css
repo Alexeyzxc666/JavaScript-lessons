@@ -1,0 +1,58 @@
+html,
+body {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    font-size: 18px;
+}
+
+header {
+    border: 2px solid white;
+    margin: 0;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 50px;
+    background-color: black;
+    color: white;
+    
+}
+
+header > div > a {
+    text-decoration: none;
+    color: white;
+}
+
+.grid *{
+    display: flex;
+    border: 1px solid white;
+    align-items: center;
+    margin: 10px;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template: repeat(3, 200px) / repeat(3, 1fr);
+    
+}
+
+.grid :hover {
+    opacity: 0.9;
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+}
+
+.head-text {
+    text-align: center;
+}
+
+button {
+    border: 0;
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
